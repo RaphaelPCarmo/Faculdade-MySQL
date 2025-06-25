@@ -1,0 +1,25 @@
+-- Nome: Atividade 2
+CREATE TABLE animal(
+  id INT NOT NULL,
+  nome VARCHAR(250) NOT NULL,
+  especie VARCHAR(45) NOT NULL,
+  raca VARCHAR(45) NOT NULL, 
+  data_nascimento DATE NOT NULL,
+  PRIMARY KEY(id)
+);
+
+INSERT into animal(id, nome, especie, raca, data_nascimento) VALUES (1, 'Rex', 'Cachorro', 'Pinscher', '1939-03-02');
+INSERT into animal(id, nome, especie, raca, data_nascimento) VALUES (2,'Robert', 'Ave', 'Calopsita', '1837-02-12');
+INSERT into animal(id, nome, especie, raca, data_nascimento) VALUES (3,'Tobby', 'Cachorro', 'Cocker', '2012-03-15');
+INSERT into animal(id, nome, especie, raca, data_nascimento) VALUES (4,'MR. Tinkles', 'Gato','Maine Coon', '2024-12-31');
+INSERT into animal(id, nome, especie, raca, data_nascimento) VALUES (5,'Stuart', 'Rato', 'Gerbil', '2003-05-23');
+
+SELECT * from animal;
+SELECT nome, raca from animal where especie = 'Cachorro';
+SELECT data_nascimento from animal where especie = 'Ave' AND raca = 'Calopsita';
+SELECT * from animal where nome = 'Rex';
+UPDATE animal set raca = 'SRD' where nome = 'Tobby' and especie = 'Cachorro';
+UPDATE animal set data_nascimento = '2020-01-01' WHERE id = 1;
+SELECT nome, especie, raca from animal WHERE especie = 'Foca'or especie = 'Gato';
+SELECT * from animal where data_nascimento = '2020-01-01' AND especie = 'Cachorro' or nome = 'Stuart' and especie = 'Rato';
+DELETE from animal where id = 2;

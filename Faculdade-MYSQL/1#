@@ -1,0 +1,39 @@
+-- Nome: Atividade 1
+CREATE TABLE pessoa(
+  
+id INT not NULL,
+ nome VARCHAR(250) NOT NULL,
+ data_nascimento DATE NOT NULL,
+  quantidade_irmaos INT NOT NULL,
+  rua VARCHAR(250) NOT NULL,
+  numero VARCHAR(10) NOT NULL,
+  bairro VARCHAR(45) NOT NULL,
+  cidade VARCHAR(45) NOT NULL,
+  cep VARCHAR(9) NOT NULL,
+  
+ PRIMARy KEY (id)
+ );
+ 
+ INSERT INTO pessoa (id,nome,data_nascimento,quantidade_irmaos,rua,numero,bairro,cidade,cep) VALUES 
+  (1, 'Carlos', '2000-01-01', 3, 'Rua A', '10', 'Centro', 'Jaguariúna', '13910-000'),
+  (2, 'Jennifer','2000-01-01',2,'Rua B','23','Goiabas','Jaguariúna','13821-123'),
+  (3, 'Alex','1999-12-31',5,'Rua B','34','Pamonha','Jaguariúna','12345-678'),
+  (4 ,'Helena','1999-12-31',3,'Rua B','33','Pamonha','Campinas','12345-668'),
+  (5, 'Afonso','1999-12-31',1,'Rua B','31','Pamonha','Jaguariúna','12345-658');
+ DELETE FROM pessoa WHERE id=5;
+ SELECT * FROM pessoa;
+ SELECT * FROM pessoa WHERE quantidade_irmaos >2;
+ SELECT * FROM pessoa WHERE MOD(numero,2)= 0 AND cidade='Jaguariúna';
+SELECT rua, numero, bairro, cidade, cep FROM pessoa WHERE nome = 'Afonso';
+ UPDATE pessoa SET bairro = 'Bairro das Flores' WHERE id = 4;
+ UPDATE pessoa SET quantidade_irmaos = 20 WHERE nome = 'Alex';
+SELECT * FROM pessoa WHERE quantidade_irmaos > 4 OR cidade = 'Campinas';
+ DELETE FROM pessoa WHERE id =3;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

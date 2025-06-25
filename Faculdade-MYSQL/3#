@@ -1,0 +1,48 @@
+-- Nome: Atividade 3
+
+CREATE TABLE adulto (
+	id INT PRIMARY KEY, nome VARCHAR(50) NOT NULL, data_nascimento DATE NOT NULL,
+   sexo VARCHAR(1), estado_civil VARCHAR(20) NOT NULL
+    
+);
+CREATE TABLE bebe (
+	id INT PRIMARY KEY, nome VARCHAR(50) NOT NULL, id_adulto INT, FOREIGN KEY (id_adulto) REFERENCES adulto(id)
+);
+
+--Adultos
+INSERT INTO adulto VALUES
+(1,'Ana','1990-05-20','F','Solteiro'),
+(2,'Raphael','1980-05-20','M','Solteiro'),
+(3,'Pedro','1999-05-20','M','Divorciada'),
+(4,'John','1998-05-20','M','Solteiro'),
+(5,'Ana','1997-05-20','F','Solteiro'),
+(6,'Ana','1996-05-20','F','Divorciada'),
+(7,'Ana','1995-05-20','F','Solteiro'),
+(8,'Marcus','1994-05-20','M','casado'),
+(9,'Ana','1993-05-20','F','Solteiro'),
+(10,'Ana','1992-04-20','F','casado');
+
+--Bebês
+INSERT INTO bebe VALUES
+(1,'Bebê1',1),
+(2,'Bebê2',2),
+(3,'Bebê3',3),
+(4,'Bebê4',4),
+(5,'Bebê5',5),
+(6,'Bebê6',6),
+(7,'Bebê7',7),
+(8,'Bebê8',8);
+  
+SELECT * FROM adulto WHERE estado_civil = 'Solteiro';
+SELECT * from adulto WHERE sexo = 'F';
+SELECT * FROM bebe WHERE MOD(id,2) = 1 AND MOD(id_adulto,2)=1;
+SELECT adulto.nome, bebe.nome
+FROM adulto
+INNER JOIN bebe ON adulto.id = bebe.id_adulto;
+SELECT adulto.nome, bebe.nome,adulto.estado_civil
+FROM adulto
+LEFT JOIN bebe ON adulto.id = bebe.id_adulto;
+
+
+
+
