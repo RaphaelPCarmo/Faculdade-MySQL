@@ -1,9 +1,5 @@
 --Nome: Atividade 4
 CREATE DATABASE Exercicio21;
- USE Exercicio21;
- 
-DROP DATABASE IF EXISTS Exercicio21;
-CREATE DATABASE Exercicio21;
 USE Exercicio21;
 -- Criação das tabelas
 CREATE TABLE responsavel (
@@ -86,3 +82,4 @@ INNER JOIN cachorro ON responsavel.id = cachorro.id_responsavel
 INNER JOIN agenda ON cachorro.id = agenda.id_cachorro
 GROUP BY responsavel.nome
 ORDER BY maior_valor_pago DESC;
+
